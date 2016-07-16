@@ -20,7 +20,12 @@ function newLevel(){
 //boss spawning system
 function useItem(x, y, z, itemId, blockId){
   if(itemId==2500 && blockId==57){
-    
+    clientMessage("<Gerdus> : M..M..MY DIAMOND BLOCK!");
+    clientMessage("<Gerdus> : WHY U TOUCH MY DIAMOND BLOCK WITH THAT DIRTY SNOWBALL!");
+    clientMessage("<Gerdus> : NOW FEEL MY ANGER!!!!");
+    var boss = Level.spawnMob(x,y,z, 32, EntityRenderType.zombie, mob/zombie.png);
+    Entity.setNameTag(boss, "Gerdus");
+    Entity.setHealth(boss, 100);
   }
 }
 
