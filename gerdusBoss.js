@@ -2,6 +2,9 @@
 
 //Define all we need
 var minion;
+var minion2;
+var minion3;
+var minion4;
 var ticktoggler = false;
 var tick;
 var boss;
@@ -40,6 +43,16 @@ function modTick(){
     tick--;
   }
   if(tick==0){
-    Level.spawnMob
+    var minion = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
+    var minion2 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
+    var minion3 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
+    var minion4 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
+    Entity.setNameTag(minion, "MINION");
+    Entity.setNameTag(minion2, "MINION");
+    Entity.setNameTag(minion3, "MINION");
+    Entity.setNameTag(minion4, "MINION");
+    Entity.setHealth(minion, 20);
+    Entity.setHealth(minion, 20);
+    Entity.setHealth(minion, 20);
   }
 }
