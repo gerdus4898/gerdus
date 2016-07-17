@@ -38,7 +38,7 @@ function useItem(x, y, z, itemId, blockId){
 
 
 //minion spawning system
-var tick = 6000;
+var tick = 2400;
 function modTick(){
   if(ticktoggler == true && bossExist == true){
     tick--;
@@ -56,7 +56,7 @@ function modTick(){
     Entity.setHealth(minion2, 20);
     Entity.setHealth(minion3, 20);
     Entity.setHealth(minion4, 20);
-    var tick = 6000;
+    var tick = 2400;
   }
 }
 
