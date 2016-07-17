@@ -11,7 +11,7 @@ var boss;
 var bossExist = false;
 
 //Custom snowball
-ModPE.setItem(2500, "snowball", 0, "Dirty Snowball")
+ModPE.setItem(509, "snowball", 0, "Dirty Snowball")
 
 
 //When someone join a level
@@ -19,15 +19,16 @@ function newLevel(){
   clientMessage("Thank you for downloading gerdusBoss mod by gerdus4898");
   clientMessage("Checkout more of his creation on https://github.com/gerdus4898")
   ticktoggler=true;
+  Player.addItemCreativeInv(509,1,0)
 }
 
 //boss spawning system
 function useItem(x, y, z, itemId, blockId){
-  if(itemId == 2500 && blockId == 57){
+  if(itemId == 509 && blockId == 57){
     clientMessage("<Gerdus> : M..M..MY DIAMOND BLOCK!");
     clientMessage("<Gerdus> : WHY U TOUCH MY DIAMOND BLOCK WITH THAT DIRTY SNOWBALL!");
     clientMessage("<Gerdus> : NOW FEEL MY ANGER!!!!");
-    var boss = Level.spawnMob(x,y,z, 32, EntityRenderType.zombie, mob/zombie.png);
+    var boss = Level.spawnMob(x,y,z, 32, EntityRenderType.zombie, "mob/zombie.png");
     Entity.setNameTag(boss, "Gerdus");
     Entity.setHealth(boss, 100);
     Entity.setCarriedItem(boss, 276);
@@ -43,10 +44,10 @@ function modTick(){
     tick--;
   }
   if(tick == 0 && bossExist == true){
-    var minion = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
-    var minion2 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
-    var minion3 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
-    var minion4 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
+    var minion = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, "mob/zombie.png");
+    var minion2 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, "mob/zombie.png");
+    var minion3 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, "mob/zombie.png");
+    var minion4 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, "mob/zombie.png");
     Entity.setNameTag(minion, "MINION");
     Entity.setNameTag(minion2, "MINION");
     Entity.setNameTag(minion3, "MINION");
@@ -61,8 +62,8 @@ function modTick(){
 
 //WHEN BOSS DIED
 function deathHook(a, b){
-  if(boss == b){
+  if(b == boss){
     clientMessage("<Gerdus> : Arghhhh... Okay now u can win, but next time we meet i will make sure u cant breath any more");
-    var bossExist = false;
+    bossExist = false;
   }
 }
