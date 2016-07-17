@@ -30,7 +30,7 @@ function useItem(x, y, z, itemId, blockId){
     var boss = Level.spawnMob(x,y,z, 32, EntityRenderType.zombie, mob/zombie.png);
     Entity.setNameTag(boss, "Gerdus");
     Entity.setHealth(boss, 100);
-    Entity.setCarried(boss, 276);
+    Entity.setCarriedItem(boss, 276);
     bossExist=true;
   }
 }
@@ -52,7 +52,9 @@ function modTick(){
     Entity.setNameTag(minion3, "MINION");
     Entity.setNameTag(minion4, "MINION");
     Entity.setHealth(minion, 20);
-    Entity.setHealth(minion, 20);
-    Entity.setHealth(minion, 20);
+    Entity.setHealth(minion2, 20);
+    Entity.setHealth(minion3, 20);
+    Entity.setHealth(minion4, 20);
+    var tick = 6000;
   }
 }
