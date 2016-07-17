@@ -1,6 +1,7 @@
 //Mod by gerdus4898 
 
 //Define all we need
+var minion;
 var ticktoggler = false;
 var tick;
 var boss;
@@ -26,8 +27,19 @@ function useItem(x, y, z, itemId, blockId){
     var boss = Level.spawnMob(x,y,z, 32, EntityRenderType.zombie, mob/zombie.png);
     Entity.setNameTag(boss, "Gerdus");
     Entity.setHealth(boss, 100);
+    Entity.setCarried(boss, 276);
+    bossExist=true;
   }
 }
 
 
 //minion spawning system
+var tick = 6000;
+function modTick(){
+  if(ticktoggler==true && bossExist=true){
+    tick--;
+  }
+  if(tick==0){
+    Level.spawnMob
+  }
+}
