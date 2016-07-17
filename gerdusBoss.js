@@ -23,7 +23,7 @@ function newLevel(){
 
 //boss spawning system
 function useItem(x, y, z, itemId, blockId){
-  if(itemId==2500 && blockId==57){
+  if(itemId == 2500 && blockId == 57){
     clientMessage("<Gerdus> : M..M..MY DIAMOND BLOCK!");
     clientMessage("<Gerdus> : WHY U TOUCH MY DIAMOND BLOCK WITH THAT DIRTY SNOWBALL!");
     clientMessage("<Gerdus> : NOW FEEL MY ANGER!!!!");
@@ -39,10 +39,10 @@ function useItem(x, y, z, itemId, blockId){
 //minion spawning system
 var tick = 6000;
 function modTick(){
-  if(ticktoggler==true && bossExist=true){
+  if(ticktoggler == true && bossExist == true){
     tick--;
   }
-  if(tick==0){
+  if(tick == 0 && bossExist == true){
     var minion = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
     var minion2 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
     var minion3 = Level.spawnMob(Entity.getX(boss), Entity.getY(boss), Entity.getZ(boss), 32,  EntityRenderType.zombie, mob/zombie.png);
@@ -56,5 +56,13 @@ function modTick(){
     Entity.setHealth(minion3, 20);
     Entity.setHealth(minion4, 20);
     var tick = 6000;
+  }
+}
+
+//WHEN BOSS DIED
+function deathHook(a, b){
+  if(boss == b){
+    clientMessage("<Gerdus> : Arghhhh... Okay now u can win, but next time we meet i will make sure u cant breath any more");
+    var bossExist = false;
   }
 }
